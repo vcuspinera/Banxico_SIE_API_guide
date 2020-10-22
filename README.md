@@ -4,32 +4,35 @@
 
 The [Economic Information System](https://www.banxico.org.mx/SieInternet/), known as __SIE__, was developed by the [Banco de Mexico](https://www.banxico.org.mx/indexen.html) to share the archive of different databases gathered by this Central Bank.  
 
-Additionally, Banco de Mexico has developed an API that allows people to consult the different time series published in the SIE. You can have access to this API with this computational langugages: Javascript, Java, C#, and R. 
+Additionally, Banco de Mexico has developed an API that allows people to consult the different time series and indeces published in the SIE. You can have access to this API with this computational langugages: Javascript, Java, C#, and R. 
 
 The aim of this repository is to show __how to use SIE's API in R__. More details of the API can be found in the [official webpage](https://www.banxico.org.mx/SieAPIRest/service/v1/?locale=en).
 
 ## Getting prepared
 As mentioned before, in this repository we will focus in how to use SIE API with R.  
-<br>
 
-### Request for the API's token
-The first is to get your Bmx-Token. You can request you 64-alphanumeric token in [this link](https://www.banxico.org.mx/SieAPIRest/service/v1/token), which would be requiered to use the API.  
-<br>
+### Request a token
+The first step is to get a Bmx-Token. You can request a 64-alphanumeric token in [this link](https://www.banxico.org.mx/SieAPIRest/service/v1/token), which would be requiered to use the API.  
 
-### Intro to `siebanxicor` R-package
-
-Banco de Mexico develop a package for R called as `siebanxicor`. Install it runing:
+### Intro to `siebanxicor`
+Banco de Mexico developed a package for R called `siebanxicor` for developer, analysts and researchers for authomatically retrieving the economic databases published in the SIE by Banco de Mexico. You can install it by running the next line:
 ```{r}
 install.packages("siebanxicor")
 ```
 
-After installed, you can call it in R or RStudio as follows
+After installed, you can call this package in R or RStudio as follows:
 ```{r}
 library("siebanxicor")
 ```
 
-## Examples
+More details of the `siebanxicor` R-package can be found [here](https://cran.r-project.org/web/packages/siebanxicor/siebanxicor.pdf).
 
+## Features
+
+
+
+
+## Usage
 
 
 ## License
