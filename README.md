@@ -65,12 +65,12 @@ Additionally, the materials of this repository are of public domain. If re-using
 <div id="refs" class="references">
 
 <div id="ref-sie">
-Banco de Mexico. 2020. Economic Information System (SIE).
+Banco de Mexico. 2020. Economic Information System (SIE). Go to the site [here](https://www.banxico.org.mx/SieInternet)
 <https://www.banxico.org.mx/SieInternet/>
 </div>
 <br>
 <div id="ref-sie_api">
-Banco de Mexico. 2020. SIE API.  
+Banco de Mexico. 2020. SIE API. Go to the site [here](https://www.banxico.org.mx/SieAPIRest/service/v1/?locale=en)
 <https://www.banxico.org.mx/SieAPIRest/service/v1/?locale=en>
 </div>
 <br>
