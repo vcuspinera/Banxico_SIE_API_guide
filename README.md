@@ -1,4 +1,10 @@
-# SIE API use
+# Guide to use SIE API
+
+Banco de Mexico has developed an API for developers, analysts and researchers for authomatically retrieving the databases from the SIE. In this repository I share tips to use R tools to use this useful API.
+
+[![License:
+MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 
 ## Overview
 
@@ -15,7 +21,7 @@ As mentioned before, in this repository we will focus in how to use SIE API with
 The first step is to get a Bmx-Token. You can request a 64-alphanumeric token in [this link](https://www.banxico.org.mx/SieAPIRest/service/v1/token), which would be requiered to use the API.  
 
 ### Intro to the R-package
-Banco de Mexico developed a package for R called `siebanxicor` for developer, analysts and researchers for authomatically retrieving the economic databases published in the SIE by Banco de Mexico. You can install it by running the next line:
+Banco de Mexico developed a package for R called `siebanxicor` for developers, analysts and researchers for authomatically retrieving the economic databases published in the SIE by Banco de Mexico. You can install it by running the next line:
 ```{r}
 install.packages("siebanxicor")
 ```
