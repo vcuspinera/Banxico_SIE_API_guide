@@ -32,9 +32,9 @@ library("siebanxicor")
 
 More details of the `siebanxicor` R-package can be found [here](https://cran.r-project.org/web/packages/siebanxicor/siebanxicor.pdf).
 
-## Features of `siebanxicor` package
+## Features of `siebanxicor`
 
-The `siebanxicor` R-package has five utility functions to retrieve the information. 
+The `siebanxicor` R-package has five utility functions to retrieve information from the databases published the Mexican Central Bank: 
 
 - `setToken` - while the Bnx-Token is the key to access SIE API, this function is the knob that opens the channel to and connects to this API. This utility function should be called before any other function from the siebanxicor package.  
 
@@ -47,7 +47,9 @@ The `siebanxicor` R-package has five utility functions to retrieve the informati
 - `getSerieDataFrame` - allows to get a data.frame from only ONE time series of the vector returned by the `getSeriesData` utility function.  
 
 _Note: In some cases, to use one of these functions you should previously use another(s) of the mentioned functions; for example, to use `getSeriesMetadata` you should previously call `setToken` and `getSeriesData`._  
-  
+
+<br>
+
 Additionally, I have created a customed support function that can be found in the __src__ folder of this repo, for helping analysts and researchers to easily explore the time series:  
 
 - `SIE_function` - when giving the names of the code of different series, prints a plot of the series and metadata, and returns [tidy data](https://www.jstatsoft.org/article/view/v059i10) in data.frame format of the requested series.
