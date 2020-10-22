@@ -1,4 +1,4 @@
-# Guide to use SIE API
+# Guide and tips to use SIE API
 
 Banco de Mexico has developed an API for developers, analysts and researchers for automatically retrieve the databases from the SIE. In this repository I share tips to use R tools to use this useful API.
 
@@ -65,12 +65,12 @@ Additionally, the materials of this repository are of public domain. If re-using
 <div id="refs" class="references">
 
 <div id="ref-sie">
-Banco de Mexico. 2020. Economic Information System (SIE). Go to the site [here](https://www.banxico.org.mx/SieInternet)
+Banco de Mexico. 2020. Economic Information System (SIE).
 <https://www.banxico.org.mx/SieInternet/>
 </div>
 <br>
 <div id="ref-sie_api">
-Banco de Mexico. 2020. SIE API. Go to the site [here](https://www.banxico.org.mx/SieAPIRest/service/v1/?locale=en)
+Banco de Mexico. 2020. SIE API.
 <https://www.banxico.org.mx/SieAPIRest/service/v1/?locale=en>
 </div>
 <br>
