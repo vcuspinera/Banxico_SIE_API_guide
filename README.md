@@ -9,10 +9,12 @@ Additionally, Banco de Mexico has developed an API that allows people to consult
 The aim of this repository is to show __how to use SIE's API in R__. More details of the API can be found in the [official webpage](https://www.banxico.org.mx/SieAPIRest/service/v1/?locale=en).
 
 ## Getting prepared
-As mentioned before, in this repository we will focus in how to use SIE API with R.
+As mentioned before, in this repository we will focus in how to use SIE API with R.  
+<br>
 
 ### Request for the API's token
-The first is to get your Bmx-Token. You can request you 64-alphanumeric token in [this link](https://www.banxico.org.mx/SieAPIRest/service/v1/token), which would be requiered to use the API.
+The first is to get your Bmx-Token. You can request you 64-alphanumeric token in [this link](https://www.banxico.org.mx/SieAPIRest/service/v1/token), which would be requiered to use the API.  
+<br>
 
 ### Intro to `siebanxicor` R-package
 
