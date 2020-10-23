@@ -57,7 +57,7 @@ Additionally, I have created a customed support function that can be found in th
 
 ## Usage
 
-To show the usage of the SIE API with `siebanxicor` R-package, we will go through an example using the time series for _Annual counterfeit domestic banknotes detected_ (serie SM1255) and _Annual counterfeit domestic banknotes detected_ (SM1266).
+To show the usage of the SIE API with `siebanxicor` R-package, we will go through an example using the time series for the of the __Annual counterfeit domestic banknotes detected for the current denomination in circulation__: 20, 50, 100, 200, 500 and 1000 pesos  (series __SM1249__, __SM1250__, __SM1251__, __SM1252__, __SM1253__, __SM1254__).
 
 [⭐️ Click here](https://www.banxico.org.mx/SieAPIRest/service/v1/doc/catalogoSeries) to look for the complete catalogue of the SIE's time series published by Banco de Mexico.
 
@@ -86,11 +86,11 @@ _Notes:_
 
 #### 3. Get data with `getSeriesData(series, startDate, endDate)`
 
-Get the time series of interest, in this case the __SM1255__ and __SM1266__ series of annual counterfeit of mexican banknotes and coins, using the `getSeriesData` function.
+Get the time series of interest, in this case the series of the annual counterfeit of mexican banknotes per denomination, using the `getSeriesData` function.
 ```{r getting series}
 # setting the variables
-my_series <- c("SM1255", "SM1266")
-my_start <- '2010-01-01'
+my_series <- c("SM1249", "SM1250", "SM1251", "SM1252", "SM1253", "SM1254")
+my_start <- '2015-01-01'
 my_end <- Sys.Date() #looks for today's date
 
 # getting the series
@@ -113,7 +113,7 @@ _Note: to use the `getSeriesMetadata` function, you should previously call `setT
 
 #### 5. Get a data frame of one series using `getSerieDataFrame(series, idSerie)`
 
-This function will be helpful to get a data frame for the annual counterfeit of mexican banknotes __(SM1255)__ series, from the vector returned by the `getSerieDataFrame` in the previous point #3.
+This function will be helpful to get a data frame for the annual counterfeit number of 500 pesos banknotes (__SM1253__ series), from the vector returned by the `getSerieDataFrame` in the previous point #3.
 
 ```{r get SM1255 df}
 # getting the series
@@ -124,7 +124,7 @@ _Note: to use the `getSerieDataFrame` function, you should previously call `setT
 
 #### 6. Get the last value of one or more series with `getSeriesCurrentValue(series)`
 
-To get the last value of the series __SM1255__ and __SM1266__, we will use the `getSeriesCurrentValue` function.
+To get the last value of the annual counterfeit banknotes per denomination series, we will use the `getSeriesCurrentValue` function.
 
 ```{r last value}
 df_last_value <- getSeriesCurrentValue(my_series)
@@ -134,27 +134,27 @@ _Note: to use the `getSeriesCurrentValue` function, you should previously call `
 
 #### 7. Use the customed function `SIE_function(series_codes, series_names, title_plot, x_lab, y_lab, startDate, endDate, route)`
 
-This function prints the metadata of the series, prints and save and their plot, and returns a data frame with the requested series in tidy format.
+This function prints the metadata for the Annual Counterfit Banknotes series, prints and saves and their plot, and returns a data frame with these series in tidy format.
 
 ```{r custome function}
 # call the customed function from an RScript
 source("SIE_function.R")
 
 # setting the variables
-my_series <- c("SM1255", "SM1266")
-my_names <- c("Counterfeit Banknotes", "Counterfeit Coins")
-my_title <- "Annual Counterfeit Banknotes and Coins"
+my_series <- c("SM1249", "SM1250", "SM1251", "SM1252", "SM1253", "SM1254")
+my_names <- c("20", "50", "100", "200", "500", "1000")
+my_title <- "Annual Counterfeit Banknotes per Denomination"
 my_start <- '2010-01-01'
 my_end <- Sys.Date() #looks for today's date
 
 # run the function
-df_series <- sie_function(my_series, my_names, my_title, route="../img/",
-                          y_lab="Number of Pieces", startDate=my_start)
+df <- sie_function(my_series, my_names, my_title, route="../img/",
+             y_lab="Number of Pieces", startDate=my_start)
 ```
 
-In this case, the function plots the Annual Counterfeit of Banknotes and Coins (__SM1255__ and __SM1266__) series as follows.
+In this case, the function plots the series for the Annual Counterfeit of Banknotes per denomination as follows.
 
-<center><img class="center" src="img\Annual Counterfeit Banknotes and Coins.png" width="65%" height="65%" class="center"></center>
+<center><img class="center" src="img\Annual Counterfeit Banknotes per Denomination.png" width="65%" height="65%" class="center"></center>
 
 ## License
 If you use Banco de Mexico's SIE API, you must clearly state the source and include a reference to Banco de México's URL address to enable third parties to verify the information's accuracy. For more details, look into the [Disclaimer](https://www.banxico.org.mx/footer-en/disclaimer-usage-policies-ban.html) shared by the Central Bank.
