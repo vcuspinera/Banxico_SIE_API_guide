@@ -4,8 +4,8 @@ Banco de Mexico has developed an API for developers, analysts and researchers fo
 
 ```diff
 # ⚠️ The views and conclusions presented in this Repository  #
-#   are exclusively the responsibility of the author and     #
-#   do not necessarily reflect those of Banco de México.     #
+#     are exclusively the responsibility of the author and   #
+#     do not necessarily reflect those of Banco de México.   #
 ```
 
 [![License:
