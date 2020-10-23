@@ -38,7 +38,8 @@ source("SIE_function.R")
 my_series <- c('SM1472', 'SM1478', 'SM1479', 'SM1480', 'SM1481', 'SM1482')
 my_names <- c('20','50','100','200','500','1000')
 my_title <- "Notes in Circulation"
-my_start <- '2016-01-01'
+my_start <- '2015-01-01'
+
 my_route <- "../img/"
 
 # run the function
@@ -85,9 +86,12 @@ growth_NIC %>% tail()
 
 # plot
 growth_NIC %>% ggplot() +
+  #geom_rect(aes(xmin=as.Date("2020-03-01", "%Y-%m-%d"), xmax=as.Date(Sys.Date(), "%Y-%m-%d"), ymin=-Inf, ymax=Inf), fill="orange", alpha=0.01) +
   geom_line(aes(x=date, y=annual_growth, color=serie_name), size=0.7) +
   labs(title="Growth of Banknotes in Circulation", subtitle="2017-2020", x="", y="Percentage (%)", color="Denomination") +
-  scale_color_manual(values=c("dodgerblue3", "pink2", "firebrick1", "chartreuse3", "chocolate", "darkorchid3")) +
+  scale_color_manual(values=c("dodgerblue3", "pink2", "firebrick1", "chartreuse3", "gold", "darkorchid3")) +
+    annotate(geom = "rect", xmin=as.Date("2020-03-01", "%Y-%m-%d"), xmax=as.Date(Sys.Date(), "%Y-%m-%d"), ymin=-Inf, ymax=Inf, fill="red", alpha=0.15) +
+  annotate("text", x=as.Date("2020-07-01", "%Y-%m-%d"), y=30, label= "Covid-19 \nlockdown", size=2.5, color="darkred") + 
   theme_bw()
 ```
 
