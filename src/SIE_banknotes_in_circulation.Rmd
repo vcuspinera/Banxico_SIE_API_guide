@@ -1,0 +1,93 @@
+---
+title: "Banknotes in Circulation"
+author: "Victor Cuspinera"
+date: "23/10/2020"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Banknotes in Circulation
+
+### Overview
+
+One of the main activities of Banco de Mexico is to issue new Banknotes and Coins and ensure an adequate level of Banknotes and Coins in Circulation to satisfy the Cash requirements of the people, businesses and companies, to allow the Economy of the country work properly.
+
+The aim of this document is to analyze the Banknotes in Circulation using the SIE API with the `siebanxicor` R-package, and the custome function `sie_function` from the _SIE_function.R_ script.
+
+### Quick overview
+
+I use the developed customed function for an overview of the first draft to look into the Banknotes in Circulation by denomination.
+
+```{r}
+# load libraries
+library("siebanxicor")
+library("tidyverse")
+library(reshape2)
+
+# call and set the token
+token_file <- read.csv("../token/SIE_Token.csv", header=FALSE)
+setToken(token_file$V2)
+
+# call the customed function from an RScript
+source("SIE_function.R")
+
+# setting the variables for current Notes in Circulation
+my_series <- c('SM1472', 'SM1478', 'SM1479', 'SM1480', 'SM1481', 'SM1482')
+my_names <- c('20','50','100','200','500','1000')
+my_title <- "Notes in Circulation"
+my_start <- '2016-01-01'
+my_route <- "../img/"
+
+# run the function
+series_NIC <- sie_function(my_series, my_names, 
+                           my_title, route=my_route,
+                           y_lab="Million of banknotes",
+                           startDate=my_start)
+```
+
+And this is an example of how does the Notes in Circulation (NIC) tidy data frame looks like:
+```{r tidy df, echo=FALSE}
+# print an example of the data frame
+series_NIC %>% tail()
+```
+
+## Getting a squared data frame
+Tidy data is not always the easiest way to look at through the human-eye. The next code chunk wranges the previously obtained tidy data frame into a messy and square data frame with one column per denomination.
+```{r messy df}
+# get square data frame
+squared_NIC <- dcast(series_NIC, date~serie)
+
+# rename the series
+names(squared_NIC) <- c("date", my_names)
+
+# order by date
+squared_NIC <- squared_NIC[order(as.Date(squared_NIC$date, format="%Y-%m-%d")),]
+
+# print an example of the data frame
+squared_NIC %>% head()
+```
+
+## Looking into the annual growth
+It would be also useful to look into the annual growth (comparing the number of NIC of a specific month vs. the data of the same month from the previous year).
+```{r annual growth}
+# get the growth rate
+growth_NIC <- series_NIC %>%
+    group_by(serie) %>%
+    mutate(annual_growth = round((value - lag(value, 12)) * 100 / lag(value, 12), 1)) %>% 
+    subset(select = -c(value)) %>%
+    drop_na()
+
+# print an example of the data frame
+growth_NIC %>% tail()
+
+# plot
+growth_NIC %>% ggplot() +
+  geom_line(aes(x=date, y=annual_growth, color=serie_name), size=0.7) +
+  labs(title="Growth of Banknotes in Circulation", subtitle="2017-2020", x="", y="Percentage (%)", color="Denomination") +
+  scale_color_manual(values=c("dodgerblue3", "pink2", "firebrick1", "chartreuse3", "chocolate", "darkorchid3")) +
+  theme_bw()
+```
+

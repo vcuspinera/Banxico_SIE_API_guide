@@ -55,9 +55,10 @@ To show the usage of the SIE API with `siebanxicor` R-package, we will go throug
 
 #### 1. Load library
 
-After the `siebanxicor` package is installed, load this library.
+After the `siebanxicor` package is installed, load this library and also the tidyverse library.
 ```{r load libraries}
 library("siebanxicor")
+library("tidyverse")
 ```
 
 #### 2. Use `setToken(token)`
