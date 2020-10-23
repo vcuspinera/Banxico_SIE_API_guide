@@ -2,7 +2,7 @@
 
 Banco de Mexico has developed an API for developers, analysts and researchers for automatically retrieve the databases from the SIE. In this repository I share tips to use R tools to use this useful API.
 
-<span style="color: grey;font-size:1.3em">⚠️</span> <span style="color: grey;font-size:0.85em">The views and conclusions presented in this Repository are exclusively the responsibility of the author and do not necessarily reflect those of Banco de México.</span>
+<p style="color: grey;font-size:1.3em">⚠️</p><p style="color: grey;font-size:0.85em">The views and conclusions presented in this Repository are exclusively the responsibility of the author and do not necessarily reflect those of Banco de México.</p>
 
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
