@@ -115,9 +115,9 @@ df_SM1255
 _Note: to use the `getSerieDataFrame` function, you should previously call `setToken` and `getSerieData`._
 
 
-#### 6. Get the last value one or many series with `getSeriesCurrentValue(series)`
+#### 6. Get the last value of one or more series with `getSeriesCurrentValue(series)`
 
-Get the last value of the series __SM1255__ and __SM1266__ by using the `getSeriesCurrentValue` function.
+To get the last value of the series __SM1255__ and __SM1266__, we will use the `getSeriesCurrentValue` function.
 
 ```{r last value}
 series_last <- getSeriesCurrentValue(my_series)
@@ -126,12 +126,25 @@ series_last
 _Note: to use the `getSeriesCurrentValue` function, you should previously call `setToken`._
 
 
+#### 7. Use the custome function `SIE_function(series_codes, series_names, title_plot, x_lab, y_lab, startDate, endDate, route)`
 
+This customed function prints the metadata and plots the series, and returns the data frame with the requested series as tidy data.
 
+```{r custome function}
+# call the customed function from an RScript
+source("SIE_function.R")
 
+# setting the variables
+my_series <- c("SM1255", "SM1266")
+my_names <- c("Counterfeit Banknotes", "Counterfeit Coins")
+my_title <- "Annual Counterfeit Banknotes and Coins"
+my_start <- '2010-01-01'
+my_end <- Sys.Date() #looks for today's date
 
-
-
+# run the function
+sie_function(my_series, my_names, my_title, route="../img/",
+             y_lab="Number of Pieces", startDate=my_start)
+```
 
 ## License
 If you use Banco de Mexico's SIE API, you must clearly state the source and include a reference to Banco de México's URL address to enable third parties to verify the information's accuracy. For more details, look into the [Disclaimer](https://www.banxico.org.mx/footer-en/disclaimer-usage-policies-ban.html) shared by the Central Bank.
