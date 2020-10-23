@@ -90,7 +90,7 @@ growth_NIC %>% ggplot() +
   labs(title = "Growth of Banknotes in Circulation", subtitle = "2016-2020", x = "", y = "Percentage (%)", color = "Denomination") +
   scale_color_manual(values = c("dodgerblue3", "pink2", "firebrick1", "chartreuse3", "gold", "darkorchid3")) +
     annotate(geom = "rect", xmin = as.Date("2020-03-01", "%Y-%m-%d"), xmax = as.Date(Sys.Date(), "%Y-%m-%d"), ymin = -Inf, ymax = Inf, fill = "red", alpha = 0.15) +
-  annotate("text", x = as.Date("2020-02-01", "%Y-%m-%d"), y = 29.5, label = "Covid-19 \nlockdown", size = 2.5, color = "darkred", alpha = 0.8) + 
+  annotate("text", x = as.Date("2020-02-01", "%Y-%m-%d"), y = 29.5, label = "Covid-19 \nlockdown", size = 4, color = "darkred", alpha = 0.8) + 
   theme_bw()
 
 # save plot
