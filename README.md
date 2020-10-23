@@ -53,7 +53,7 @@ Additionally, I have created a customed support function that can be found in th
 
 To show the usage of the SIE API with `siebanxicor` R-package, we will go through an example using the time series for _Annual counterfeit domestic banknotes detected_ (serie SM1255) and _Annual counterfeit domestic banknotes detected_ (SM1266).
 
-⭐️ [Click here](https://www.banxico.org.mx/SieAPIRest/service/v1/doc/catalogoSeries) to look for the complete catalogue of the SIE's time series published by Banco de Mexico.
+[⭐️ Click here](https://www.banxico.org.mx/SieAPIRest/service/v1/doc/catalogoSeries) to look for the complete catalogue of the SIE's time series published by Banco de Mexico.
 
 #### 1. Load library
 
