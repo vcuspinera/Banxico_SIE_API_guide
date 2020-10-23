@@ -3,9 +3,9 @@
 Banco de Mexico has developed an API for developers, analysts and researchers for automatically retrieve the databases from the SIE. In this repository I share tips to use R tools to use this useful API.
 
 ```diff
-# ⚠ The views and conclusions presented in this Repository  #
-#   are exclusively the responsibility of the author and    #
-#   do not necessarily reflect those of Banco de México.    #
+# ⚠️ The views and conclusions presented in this Repository  #
+#   are exclusively the responsibility of the author and     #
+#   do not necessarily reflect those of Banco de México.     #
 ```
 
 [![License:
