@@ -126,9 +126,9 @@ series_last
 _Note: to use the `getSeriesCurrentValue` function, you should previously call `setToken`._
 
 
-#### 7. Use the custome function `SIE_function(series_codes, series_names, title_plot, x_lab, y_lab, startDate, endDate, route)`
+#### 7. Use the customed function `SIE_function(series_codes, series_names, title_plot, x_lab, y_lab, startDate, endDate, route)`
 
-This customed function prints the metadata and plots the series, and returns the data frame with the requested series as tidy data.
+This function prints the metadata of the series, prints and save and their plot, and returns a data frame with the requested series in tidy format.
 
 ```{r custome function}
 # call the customed function from an RScript
