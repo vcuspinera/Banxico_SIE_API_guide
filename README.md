@@ -143,9 +143,9 @@ df_series <- sie_function(my_series, my_names, my_title, route="../img/",
                           y_lab="Number of Pieces", startDate=my_start)
 ```
 
-This function plots the __SM1255__ and __SM1266__ series as follows.
+In this case, the function plots the __SM1255__ and __SM1266__ series as follows.
 
-<img src="img\Annual Counterfeit Banknotes and Coins.png" width="50%" height="50%">
+<img src="img\Annual Counterfeit Banknotes and Coins.png" width="80%" height="80%">
 
 ## License
 If you use Banco de Mexico's SIE API, you must clearly state the source and include a reference to Banco de México's URL address to enable third parties to verify the information's accuracy. For more details, look into the [Disclaimer](https://www.banxico.org.mx/footer-en/disclaimer-usage-policies-ban.html) shared by the Central Bank.
