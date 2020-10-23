@@ -16,10 +16,10 @@ The aim of this repository is to show __how to use SIE's API in R__. More detail
 ## Getting prepared
 As mentioned before, in this repository we will focus in how to use SIE API with R.  
 
-### Request a token
+#### Request a token
 The first step is to get a Bmx-Token. You can request a 64-alphanumeric token in [this link](https://www.banxico.org.mx/SieAPIRest/service/v1/token), which would be required to use the API.  
 
-### Installation of R-package
+#### Installation of R-package
 Banco de Mexico developed a package for R called `siebanxicor` for developers, analysts and researchers for automatically retrieve economic databases published in the SIE by Banco de Mexico. You can install it by running the next line:
 ```{r}
 install.packages("siebanxicor")
@@ -53,14 +53,14 @@ Additionally, I have created a customed support function that can be found in th
 
 To show the usage of the SIE API with `siebanxicor` R-package, we will go through an example using the time series for _Annual counterfeit domestic banknotes detected_ (serie SM1255) and _Annual counterfeit domestic banknotes detected_ (SM1266).
 
-### 1. Load library
+#### 1. Load library
 
 After the `siebanxicor` package is installed, load this library.
 ```{r load libraries}
 library("siebanxicor")
 ```
 
-### 2. Use `setToken(token)`
+#### 2. Use `setToken(token)`
 
 Bring your token and open the SIE API channel with the `setToken` utility function.
 ```{r bring and set token, warning=FALSE}
@@ -75,7 +75,7 @@ _Notes:_
 - _I add a csv file where users should paste and save their token to run this example._  
 
 
-### 3. Get data with `getSeriesData(series, startDate, endDate)`
+#### 3. Get data with `getSeriesData(series, startDate, endDate)`
 
 Get the time series of interest, in this case the __SM1255__ and __SM1266__ series of annual counterfeit of mexican banknotes and coins, using the `getSeriesData` function.
 ```{r getting series}
@@ -91,7 +91,7 @@ series
 _Note: to use the `getSeriesData` function, you should previously call `setToken`._
 
 
-### 4. Get the metadata with `getSeriesMetadata(series, locale)`
+#### 4. Get the metadata with `getSeriesMetadata(series, locale)`
 
 This function returns the general information of series. To select the language of the metadata, set the _locale_ variable as "en" for English, and "es" for Spanish.
 
@@ -103,7 +103,7 @@ getSeriesMetadata(my_series, locale="en")
 _Note: to use the `getSeriesMetadata` function, you should previously call `setToken`._
 
 
-### 5. Get a data frame of one series using `getSerieDataFrame(series, idSerie)`
+#### 5. Get a data frame of one series using `getSerieDataFrame(series, idSerie)`
 
 This function will be helpful to get a data frame for the annual counterfeit of mexican banknotes __(SM1255)__ series, from the vector returned by the `getSerieDataFrame` in the previous point #3.
 
@@ -115,7 +115,7 @@ df_SM1255
 _Note: to use the `getSerieDataFrame` function, you should previously call `setToken` and `getSerieData`._
 
 
-### 6. Get the last value one or many series with `getSeriesCurrentValue(series)`
+#### 6. Get the last value one or many series with `getSeriesCurrentValue(series)`
 
 Get the last value of the series __SM1255__ and __SM1266__ by using the `getSeriesCurrentValue` function.
 
