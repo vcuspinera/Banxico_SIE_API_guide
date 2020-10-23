@@ -149,7 +149,7 @@ my_end <- Sys.Date() #looks for today's date
 
 # run the function
 df <- sie_function(my_series, my_names, my_title, route="../img/",
-             y_lab="Number of Pieces", startDate=my_start)
+             y_lab="Number of Pieces", x_lab="Year", startDate=my_start)
 ```
 
 In this case, the function plots the series for the Annual Counterfeit of Banknotes per denomination as follows.
