@@ -86,7 +86,6 @@ my_end <- Sys.Date() #looks for today's date
 
 # getting the series
 series <- getSeriesData(my_series, my_start, my_end)
-series
 ```
 _Note: to use the `getSeriesData` function, you should previously call `setToken`._
 
@@ -97,7 +96,7 @@ This function returns the general information of series. To select the language 
 
 ```{r getting metadata}
 # getting the metadata
-getSeriesMetadata(my_series, locale="en")
+metadata <- getSeriesMetadata(my_series, locale="en")
 ```
 
 _Note: to use the `getSeriesMetadata` function, you should previously call `setToken`._
@@ -110,7 +109,6 @@ This function will be helpful to get a data frame for the annual counterfeit of 
 ```{r get SM1255 df}
 # getting the series
 df_SM1255 <- getSerieDataFrame(series, "SM1255")
-df_SM1255
 ```
 _Note: to use the `getSerieDataFrame` function, you should previously call `setToken` and `getSerieData`._
 
@@ -120,8 +118,7 @@ _Note: to use the `getSerieDataFrame` function, you should previously call `setT
 To get the last value of the series __SM1255__ and __SM1266__, we will use the `getSeriesCurrentValue` function.
 
 ```{r last value}
-series_last <- getSeriesCurrentValue(my_series)
-series_last
+df_last_value <- getSeriesCurrentValue(my_series)
 ```
 _Note: to use the `getSeriesCurrentValue` function, you should previously call `setToken`._
 
@@ -142,9 +139,13 @@ my_start <- '2010-01-01'
 my_end <- Sys.Date() #looks for today's date
 
 # run the function
-sie_function(my_series, my_names, my_title, route="../img/",
-             y_lab="Number of Pieces", startDate=my_start)
+df_series <- sie_function(my_series, my_names, my_title, route="../img/",
+                          y_lab="Number of Pieces", startDate=my_start)
 ```
+
+This function plots the __SM1255__ and __SM1266__ series as follows.
+
+<img src="img\Annual Counterfeit Banknotes and Coins.png" width="50%" height="50%">
 
 ## License
 If you use Banco de Mexico's SIE API, you must clearly state the source and include a reference to Banco de México's URL address to enable third parties to verify the information's accuracy. For more details, look into the [Disclaimer](https://www.banxico.org.mx/footer-en/disclaimer-usage-policies-ban.html) shared by the Central Bank.
