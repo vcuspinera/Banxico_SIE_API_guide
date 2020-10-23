@@ -146,7 +146,7 @@ df_series <- sie_function(my_series, my_names, my_title, route="../img/",
 In this case, the function plots the Annual Counterfeit of Banknotes and Coins (__SM1255__ and __SM1266__) series as follows.
 
 <center>
-<img src="img\Annual Counterfeit Banknotes and Coins.png" width="65%" height="65%">
+    <img src="img\Annual Counterfeit Banknotes and Coins.png" width="65%" height="65%">
 </center>
 
 ## License
