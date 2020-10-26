@@ -1,0 +1,148 @@
+---
+title: "Diverse examples of the custom sie_function"
+author: "Victor Cuspinera"
+date: "25/10/2020"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Overview
+
+The aim of this document is to share diverse examples on how to use the custome function `sie_function`, developed to get a quick view of diverse selected SIE series.
+
+For details of the code of this function, look at the Rscript [SIE_function.R](https://github.com/vcuspinera/SIE_API_guide/blob/main/src/SIE_function.R) in the **src** folder of this repository.
+
+## SIE's Series Catalogue
+The time series used in this notebook for examples are:
+
+1. Exchange Rate, of U.S. Dollar, Canadian Dollar, British Pound, Australian Dollar, and Euro to Mexican Pesos.  
+2. Operations in ATMs with Debit and Credit Cards.
+3. Number of ATM for the eight most-populated States in Mexico.
+4. Retail payment systems transactions at ATMs, Poinrs of Sales (POS), Checks, and Transfers by Electronic Payments, Internet Banking and Phone.
+5. Consumer Price Index (INPC), main index and subindexes.
+
+
+[Click here](https://www.banxico.org.mx/SieAPIRest/service/v1/doc/catalogoSeries) to look for the complete catalogue of the SIE's time series published by Banco de Mexico.
+
+## Examples:
+
+### 0. Load libraries and set token
+The first step is to use the custome function is load the library, as well to call and set the token.
+
+```{r load library and set token, warning = FALSE}
+# load libraries
+library("siebanxicor")
+library("tidyverse")
+
+# bring the token
+token_file <- read.csv("../token/SIE_Token.csv", header=FALSE)
+
+# set the token
+setToken(token_file$V2)
+
+# call the customed function from the RScript
+source("SIE_function.R")
+```
+
+
+### 1. Exchange Rate
+Exchange rate of U.S. Dollar, Canadian Dollar, British Pound, Australian Dollar, and Euro to Mexican Pesos, since 2000.
+
+```{r exchange rate}
+serie_tc <- c("SF60653", "SF57771", "SF57815", "SF57753", 
+              "SF57923")
+name_tc <- c("USD", "CAD", "GBP", "AUD", "EUR")
+title_tc <- "Exchange Rates"
+my_start <- '2000-01-01'
+my_y <- "Mexican Pesos"
+my_x <- "Date"
+
+# run the function
+df_tc <- sie_function(serie_tc, name_tc, 
+            title_tc, route="../img/",
+            y_lab = my_y, x_lab = my_x,
+            startDate=my_start)
+```
+
+### 2. Operations in ATMs
+Series of number of operations in ATMs with Debit and Credit Cards.
+```{r atm operations}
+serie_atm <- c("SF62270", "SF62271")
+name_atm <- c("with Debit Card", "with Credit Card")
+title_atm <- "Operations in ATMs"
+my_y <- "Number of operations"
+my_x <- "Quarter"
+
+# run the function
+df_atm <- sie_function(serie_atm, name_atm, 
+            title_atm, route="../img/",
+            y_lab = my_y, x_lab = my_x)
+```
+
+
+### 3. Number of ATM for the most populated States 
+Quarterly time series of the number of ATMs by State, for the 8 states more populated in Mexico, from 2010.
+
+```{r atm number}
+serie_state <- c("SF42310", "SF42338", "SF42346", "SF42336", 
+                 "SF42368", "SF42330", "SF42350", "SF42324")
+name_state <- c("CDMX", "EDO_MEX", "NL", "JAL", "VER",  
+                "GTO", "PUE", "CHIS")
+title_state <- "Number of ATMs by State"
+my_start <- '2010-01-01'
+my_y <- "Number of ATMs"
+my_x <- "Quarterly"
+
+# run the function
+df_state <- sie_function(serie_state, name_state, 
+            title_state, route="../img/",
+            y_lab = my_y, x_lab = my_x,
+            startDate=my_start)
+```
+
+### 4. Retail payment systems transactions
+Information from retail payments at ATMs, Poinrs of Sales (POS), Checks, and Transfers by Electronic Payments, Internet Banking and Phone, from 2016 to 2019.
+```{r retail transactions}
+serie_trans <- c("SF62275", "SF62278", "SF61610", "SF60841",
+                 "SF60842", "SF60843")
+name_trans <- c("ATMs", "POS (Points of Sales)", "Checks", 
+                "Transfer by Electronic Banking", 
+                "Transfer by Internet Banking", 
+                "Transfer by Phone")
+title_trans <- "Retail transactions"
+my_y <- "Millions of Pesos"
+my_x <- "Quarterly"
+my_start <- '2016-01-01'
+my_end <- '2019-12-31'
+
+# run the function
+df_trans <- sie_function(serie_trans, name_trans, 
+            title_trans, route="../img/",
+            y_lab = my_y, x_lab = my_x,
+            startDate=my_start, endDate=my_end)
+```
+
+### 5. Consumer Price Index (INPC)
+Main time series of the Consumer Price Index (INPC for it's acronym in spanish), and their core and non-core subindexes. Time window of Enrique Peña Nieto's Presidency of Mexico.
+```{r inpc}
+serie_inpc <- c("SP74625", "SP74626", "SP74628", "SP56337", 
+                "SP74631")
+name_inpc <- c("INPC (main)", "Merchandise (sub, core)", 
+               "Services (sub, core)", 
+               "Agricultural (sub, non-core)", 
+               "Energy (sub, non-core)")
+title_inpc <- "Consumer Price Index"
+my_y <- "Index"
+my_x <- "Month"
+my_start <- '2012-12-01'
+my_end <- '2018-11-30'
+
+# run the function
+df_inpc <- sie_function(serie_inpc, name_inpc, 
+            title_inpc, route="../img/",
+            y_lab = my_y, x_lab = my_x,
+            startDate=my_start)
+```

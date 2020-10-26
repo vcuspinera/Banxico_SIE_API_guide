@@ -9,15 +9,13 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Banknotes in Circulation
-
-### Overview
+## Overview
 
 One of the main activities of Banco de Mexico is to issue new Banknotes and Coins and ensure an adequate level of Banknotes and Coins in Circulation to satisfy the Cash requirements of the people, businesses and companies, to allow the Economy of the country work properly.
 
 The aim of this document is to analyze the Banknotes in Circulation using the SIE API with the `siebanxicor` R-package, and the custome function `sie_function` from the _SIE_function.R_ script.
 
-### Quick overview
+## Quick review
 
 I use the developed customed function for an overview of the first draft to look into the Banknotes in Circulation by denomination.
 
