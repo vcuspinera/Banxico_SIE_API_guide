@@ -118,7 +118,7 @@ name_trans <- c("ATM", "POS", "Check",
                 "Transfer by Electronic Banking", 
                 "Transfer by Internet Banking", 
                 "Transfer by Phone")
-title_trans <- "Retail transactions"
+title_trans <- "Retail Transactions"
 my_y <- "Millions of Pesos"
 my_x <- "Quarterly"
 my_start <- '2016-01-01'
@@ -185,7 +185,7 @@ serie_lifetime <- c("SM28", "SM29", "SM30","SM60",
 name_lifetime <- c("20 (paper)", "20 (polymer)", 
                    "50 (paper)", "50 (polymer)", 
                    "100", "200", "500", "1000")
-title_lifetime <- "Banknote lifetime"
+title_lifetime <- "Banknote Lifetime"
 my_y <- "Months in circulation"
 my_start <- '1996-01-01'
 
@@ -206,7 +206,7 @@ Among the information obtained in this polls, the Central Bank studies the perce
 serie_perception <- c("SM69", "SM70")
 name_perception <- c("Remember 2+ security features", 
                    "Review authenticity of banknotes")
-title_perception <- "Remembrance of banknote security feautres"
+title_perception <- "Remembrance of Banknote Security Features"
 my_y <- "Percentage of people (%)"
 my_x <- "Quarter"
 my_start <- '2010-01-01'
@@ -225,7 +225,7 @@ Banco de Mexico publishes the Public Finances with detail of the accumulated flo
 ```{r public sector}
 serie_public <- c("SG46", "SG9")
 name_public <- c("Total Expenditure", "Total Revenues")
-title_public <- "Accumulated flows of public sector finances in 2019"
+title_public <- "Accumulated flows of Public Sector Finances in 2019"
 my_y <- "Millions of Pesos"
 my_x <- "Month"
 my_start <- '2019-01-01'
@@ -237,3 +237,11 @@ df_public <- sie_function(serie_public, name_public,
             y_lab = my_y, x_lab = my_x,
             startDate=my_start, endDate=my_end)
 ```
+
+## Final Comments
+
+With this examples I have tried to explain the use of the customed function `sie_function` that take advantage of the utility functions from the R-package `siebanxicor` developed by Banco de Mexico to help developers, analysts and researchers to retrieve and analyze information published by the Central Bank in the Economyc Information System (SIE). 
+
+I just want to remember the users of this notebook that the views and conclusions presented in this notebook and also in the repository, are exclusively the responsibility of the author and do not necessarily reflect those of Banco de México.
+
+If you have any question related with this notebook and/or repository, please feel free to [drop me a line by email.](mailto:vcuspinera@gmail.com)
