@@ -25,11 +25,15 @@ This notebook shows diverse examples using different time series published by Ba
 
 The time series used in this notebook for examples are:
 
-1. Exchange Rate, of U.S. Dollar, Canadian Dollar, British Pound, Australian Dollar, and Euro to Mexican Pesos, since 2000.
-2. Operations in ATMs with Debit and Credit Cards.
-3. Number of ATM for the eight most-populated States in Mexico, since 2010.
-4. Retail payment systems transactions at ATMs, POS, Checks, and Transfers by Electronic Payments, Internet Banking and Phone, from 2016 to 2019.
-5. Consumer Price Index (INPC), main index and subindexes, during Enrique Peña Nieto's Presidency of Mexico (2012-2018).
+1. [Exchange Rate, of U.S. Dollar, Canadian Dollar, British Pound, Australian Dollar, and Euro to Mexican Pesos, since 2000.](\@ref(ex_one))
+2. [Operations in ATMs with Debit and Credit Cards.](\@ref(ex_two))
+3. [Number of ATM for the eight most-populated States in Mexico, since 2010.](\@ref(ex_tree)) 
+4. [Retail payment systems transactions at ATMs, POS, Checks, and Transfers by Electronic Payments, Internet Banking and Phone, from 2016 to 2019.](\@ref(ex_four))
+5. [Consumer Price Index (INPC), main index and subindexes, during Enrique Peña Nieto's Presidency of Mexico (2012-2018).](\@ref(ex_five))
+6. [Twenty pesos comparison of Banknotes vs. Coins, since 2000.](\@ref(ex_six))
+7. [Banknote lifetime.](\@ref(ex_seven))
+8. [Remembrance of banknote security features.](\@ref(ex_eight))
+9. [Mexican Public Sector Revenues vs Expenditures](\@ref(ex_nine))
 
 ### 0. Load libraries and set token
 The first step is to use the custome function is load the library, as well to call and set the token.
@@ -50,7 +54,7 @@ source("SIE_function.R")
 ```
 
 
-### 1. Exchange Rate
+### 1. Exchange Rate {#ex_one}
 Exchange rate of U.S. Dollar, Canadian Dollar, British Pound, Australian Dollar, and Euro to Mexican Pesos, since 2000.
 
 ```{r exchange rate}
@@ -69,7 +73,7 @@ df_tc <- sie_function(serie_tc, name_tc,
             startDate=my_start)
 ```
 
-### 2. Operations in ATMs
+### 2. Operations in ATMs {#ex_two}
 Series with the number of operations in ATMs with Debit and Credit Cards.
 ```{r atm operations}
 serie_atm <- c("SF62270", "SF62271")
@@ -85,7 +89,7 @@ df_atm <- sie_function(serie_atm, name_atm,
 ```
 
 
-### 3. Number of ATM for the most populated States 
+### 3. Number of ATM for the most populated States {#ex_tree}
 Quarterly time series of the number of ATMs by State, for the 8 states more populated in Mexico, since 2010.
 
 ```{r atm number}
@@ -105,7 +109,7 @@ df_state <- sie_function(serie_state, name_state,
             startDate=my_start)
 ```
 
-### 4. Retail payment systems transactions
+### 4. Retail payment systems transactions {#ex_four}
 Information from retail payments at ATMs, Points of Sales (POS), Checks, and Transfers by Electronic Payments, Internet Banking and Phone, from 2016 to 2019.
 ```{r retail transactions}
 serie_trans <- c("SF62275", "SF62278", "SF61610", "SF60841",
@@ -127,7 +131,7 @@ df_trans <- sie_function(serie_trans, name_trans,
             startDate=my_start, endDate=my_end)
 ```
 
-### 5. Consumer Price Index (INPC)
+### 5. Consumer Price Index (INPC) {#ex_five}
 Main time series of the Consumer Price Index (INPC for it's acronym in spanish), and their core and non-core subindexes. Time window of Enrique Peña Nieto's Presidency of Mexico (December 1, 2012 – November 30, 2018).
 ```{r inpc}
 serie_inpc <- c("SP74625", "SP74626", "SP74628", "SP56337", 
@@ -147,4 +151,89 @@ df_inpc <- sie_function(serie_inpc, name_inpc,
             title_inpc, route="../img/",
             y_lab = my_y, x_lab = my_x,
             startDate=my_start)
+```
+
+
+### 6. Twenty pesos comparison of Banknotes vs. Coins {#ex_six}
+In Mexico the 20 pesos banknote has coexisted with coin of the same denomination for more than twenty years. For this brief analysis, the idea is to compare the volumen of both type of cash for the 20 pesos denomination, since 2000.
+
+In general, while the [**20 pesos banknotes**](https://www.banxico.org.mx/banknotes-and-coins/20-peso-banknote-circulation-.html) has been issued as a common monetary sign for daily payments, the Central Bank has used the [**20 pesos coins**](https://www.banxico.org.mx/banknotes-and-coins/20-peso-current-coin-belong.html) to issue conmemorative events.
+
+```{r twenty pesos}
+serie_twenty <- c("SM1472", "SM17")
+name_twenty <- c("Banknotes", "Coins")
+title_twenty <- "20 pesos Banknotes vs Coins"
+my_y <- "Millions of pieces"
+my_x <- "Month"
+my_start <- '2000-01-01'
+
+# run the function
+df_twenty <- sie_function(serie_twenty, name_twenty, 
+            title_twenty, route="../img/",
+            y_lab = my_y, x_lab = my_x,
+            startDate=my_start)
+```
+
+### 7. Banknote lifetime {#ex_seven}
+The banknotes have a life cycle similar to the humans: they get borned, have a life for certain time, and die. The lifetime of a banknote is the time that lapses from the point where it is delivered to a bank, until it is deposit as unfit banknote in the Central Bank.
+
+The aim of the next graph is to compare the lifetime of the different denomination Mexican Banknotes, since 1996. In the case of the lower denominations (20 and 50 pesos), at the begining the substratum (material) of this denomination was paper-based, while it changed between 2003 and 2008 to polymer; both series are considerate in the plot.
+
+```{r banknote lifetime, warning=FALSE}
+serie_lifetime <- c("SM28", "SM29", "SM30","SM60",
+                    "SM31", "SM32", "SM33", "SM40")
+name_lifetime <- c("20 (paper)", "20 (polymer)", 
+                   "50 (paper)", "50 (polymer)", 
+                   "100", "200", "500", "1000")
+title_lifetime <- "Banknote lifetime"
+my_y <- "Months in circulation"
+my_start <- '1996-01-01'
+
+# run the function
+df_lifetime <- sie_function(serie_lifetime, 
+            name_lifetime, title_lifetime,
+            route="../img/", y_lab = my_y,
+            startDate=my_start)
+```
+
+
+### 8. Remembrance of banknote security features {#ex_eight}
+Each quarter of the year the Cash Area of the Central Bank conducts a national poll with different topics related with Coins and Banknotes^[1. For more information look at [this link](https://www.banxico.org.mx/billetes-y-monedas/estudios-e-indicadores/estudios-indicadores.html), with the results of the different Qualitative (as focus groups) and Quantitaves studies (as polls). Warning: the information related with this studies is only available in Spanish language].
+
+Among the information obtained in this polls, the Central Bank studies the percentage of people that remember two or more security features, and that check for the authenticity of their banknotes. As well, the The aim of this example is compare to look into the previously mentioned timeseries, since 2010.
+
+```{r banknote perception, warning=FALSE}
+serie_perception <- c("SM69", "SM70")
+name_perception <- c("Remember 2+ security features", 
+                   "Review authenticity of banknotes")
+title_perception <- "Remembrance of banknote security feautres"
+my_y <- "Percentage of people (%)"
+my_x <- "Quarter"
+my_start <- '2010-01-01'
+
+# run the function
+df_perception <- sie_function(serie_perception, name_perception, 
+            title_perception, route="../img/",
+            y_lab = my_y, x_lab = my_x,
+            startDate=my_start)
+```
+
+
+### 9. Mexican Public Sector Revenues vs Expenditures {#ex_nine}
+Banco de Mexico publishes the Public Finances with detail of the accumulated flows of Revenues and Expenditures in the year, which is showed in the next example, with information for 2019.
+
+```{r public sector}
+serie_public <- c("SG46", "SG9")
+name_public <- c("Total Expenditure", "Total Revenues")
+title_public <- "Accumulated flows of public sector finances in 2019"
+my_y <- "Millions of Pesos"
+my_x <- "Month"
+my_start <- '2019-01-01'
+my_end <- '2019-12-31'
+
+# run the function
+df_public <- sie_function(serie_public, name_public, 
+            title_public, route="../img/",
+            y_lab = my_y, x_lab = my_x,
+            startDate=my_start, endDate=my_end)
 ```
