@@ -53,7 +53,7 @@ _Note: In some cases, to use one of these functions you should previously use an
 
 Additionally, I have created a customed support function that can be found in the __src__ folder of this repo, for helping analysts and researchers to easily explore the time series:  
 
-- `SIE_function` - when giving the names of the code of different series, prints a plot of the series and metadata, and returns [tidy data](https://www.jstatsoft.org/article/view/v059i10) in data.frame format of the requested series.
+- `sie_function` - when giving the names of the code of different series, prints a plot of the series and metadata, and returns [tidy data](https://www.jstatsoft.org/article/view/v059i10) in data.frame format of the requested series.
 
 ## Usage
 
@@ -132,7 +132,7 @@ df_last_value <- getSeriesCurrentValue(my_series)
 _Note: to use the `getSeriesCurrentValue` function, you should previously call `setToken`._
 
 
-#### 7. Use the customed function `SIE_function(series_codes, series_names, title_plot, x_lab, y_lab, startDate, endDate, route)`
+#### 7. Use the customed function `sie_function(series_codes, series_names, title_plot, x_lab, y_lab, startDate, endDate, route)`
 
 This function prints the metadata for the Annual Counterfit Banknotes series, prints and saves and their plot, and returns a data frame with these series in tidy format.
 
