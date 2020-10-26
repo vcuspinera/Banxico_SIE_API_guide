@@ -1,5 +1,5 @@
 ---
-title: "Diverse examples of the custom sie_function"
+title: "Diverse examples of the custom `sie_function`"
 author: "Victor Cuspinera"
 date: "25/10/2020"
 output: pdf_document
@@ -16,18 +16,20 @@ The aim of this document is to share diverse examples on how to use the custome 
 For details of the code of this function, look at the Rscript [SIE_function.R](https://github.com/vcuspinera/SIE_API_guide/blob/main/src/SIE_function.R) in the **src** folder of this repository.
 
 ## SIE's Series Catalogue
-The time series used in this notebook for examples are:
 
-1. Exchange Rate, of U.S. Dollar, Canadian Dollar, British Pound, Australian Dollar, and Euro to Mexican Pesos.  
-2. Operations in ATMs with Debit and Credit Cards.
-3. Number of ATM for the eight most-populated States in Mexico.
-4. Retail payment systems transactions at ATMs, Poinrs of Sales (POS), Checks, and Transfers by Electronic Payments, Internet Banking and Phone.
-5. Consumer Price Index (INPC), main index and subindexes.
-
+This notebook shows diverse examples using different time series published by Banco de Mexico in the SIE, using series as exhange rates, operations and number of ATMs, retail transactions, among other series.
 
 [Click here](https://www.banxico.org.mx/SieAPIRest/service/v1/doc/catalogoSeries) to look for the complete catalogue of the SIE's time series published by Banco de Mexico.
 
-## Examples:
+## Examples
+
+The time series used in this notebook for examples are:
+
+1. Exchange Rate, of U.S. Dollar, Canadian Dollar, British Pound, Australian Dollar, and Euro to Mexican Pesos, since 2000.
+2. Operations in ATMs with Debit and Credit Cards.
+3. Number of ATM for the eight most-populated States in Mexico, since 2010.
+4. Retail payment systems transactions at ATMs, POS, Checks, and Transfers by Electronic Payments, Internet Banking and Phone, from 2016 to 2019.
+5. Consumer Price Index (INPC), main index and subindexes, during Enrique Peña Nieto's Presidency of Mexico (2012-2018).
 
 ### 0. Load libraries and set token
 The first step is to use the custome function is load the library, as well to call and set the token.
@@ -68,7 +70,7 @@ df_tc <- sie_function(serie_tc, name_tc,
 ```
 
 ### 2. Operations in ATMs
-Series of number of operations in ATMs with Debit and Credit Cards.
+Series with the number of operations in ATMs with Debit and Credit Cards.
 ```{r atm operations}
 serie_atm <- c("SF62270", "SF62271")
 name_atm <- c("with Debit Card", "with Credit Card")
@@ -84,7 +86,7 @@ df_atm <- sie_function(serie_atm, name_atm,
 
 
 ### 3. Number of ATM for the most populated States 
-Quarterly time series of the number of ATMs by State, for the 8 states more populated in Mexico, from 2010.
+Quarterly time series of the number of ATMs by State, for the 8 states more populated in Mexico, since 2010.
 
 ```{r atm number}
 serie_state <- c("SF42310", "SF42338", "SF42346", "SF42336", 
@@ -104,11 +106,11 @@ df_state <- sie_function(serie_state, name_state,
 ```
 
 ### 4. Retail payment systems transactions
-Information from retail payments at ATMs, Poinrs of Sales (POS), Checks, and Transfers by Electronic Payments, Internet Banking and Phone, from 2016 to 2019.
+Information from retail payments at ATMs, Points of Sales (POS), Checks, and Transfers by Electronic Payments, Internet Banking and Phone, from 2016 to 2019.
 ```{r retail transactions}
 serie_trans <- c("SF62275", "SF62278", "SF61610", "SF60841",
                  "SF60842", "SF60843")
-name_trans <- c("ATMs", "POS (Points of Sales)", "Checks", 
+name_trans <- c("ATM", "POS", "Check", 
                 "Transfer by Electronic Banking", 
                 "Transfer by Internet Banking", 
                 "Transfer by Phone")
@@ -126,7 +128,7 @@ df_trans <- sie_function(serie_trans, name_trans,
 ```
 
 ### 5. Consumer Price Index (INPC)
-Main time series of the Consumer Price Index (INPC for it's acronym in spanish), and their core and non-core subindexes. Time window of Enrique Peña Nieto's Presidency of Mexico.
+Main time series of the Consumer Price Index (INPC for it's acronym in spanish), and their core and non-core subindexes. Time window of Enrique Peña Nieto's Presidency of Mexico (December 1, 2012 – November 30, 2018).
 ```{r inpc}
 serie_inpc <- c("SP74625", "SP74626", "SP74628", "SP56337", 
                 "SP74631")
