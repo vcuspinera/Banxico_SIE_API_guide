@@ -5,7 +5,7 @@ Banco de Mexico has developed an API for developers, analysts and researchers fo
 ```diff
 # ⚠️ The views and conclusions presented in this Repository are exclusively  #
 #     the responsibility of the author and do not necessarily reflect those  #
-#     of Banco de México.                                                    #
+#     of Banco de Mexico.                                                    #
 ```
 
 [![License:
@@ -155,6 +155,8 @@ df <- sie_function(my_series, my_names, my_title, route="../img/",
 In this case, the function plots the series for the Annual Counterfeit of Banknotes per denomination as follows.
 
 <center><img class="center" src="img\Annual Counterfeit Banknotes per Denomination.png" width="65%" height="65%" class="center"></center>
+
+For illustrative purposes, I developed an additional document with more examples using this custome function for different time-series published in the SIE by Banco de Mexico. [👉 Click here](https://github.com/vcuspinera/SIE_API_guide/blob/main/src/SIE_function_examples.pdf) for access to this document.
 
 ## License
 If you use Banco de Mexico's SIE API, you must clearly state the source and include a reference to Banco de México's URL address to enable third parties to verify the information's accuracy. For more details, look into the [Disclaimer](https://www.banxico.org.mx/footer-en/disclaimer-usage-policies-ban.html) shared by the Central Bank.
