@@ -156,7 +156,7 @@ In this case, the function plots the series for the Annual Counterfeit of Bankno
 
 <center><img class="center" src="img\Annual Counterfeit Banknotes per Denomination.png" width="65%" height="65%" class="center"></center>
 
-For illustrative purposes, I developed an additional document with more examples using this custome function for different time-series published in the SIE by Banco de Mexico. [👉 Click here](https://github.com/vcuspinera/SIE_API_guide/blob/main/src/SIE_function_examples.pdf) for access to this document.
+[👉 Click here](https://github.com/vcuspinera/SIE_API_guide/blob/main/src/SIE_function_examples.pdf) to access to a complementary document developed to show additional examples of this custome function applied to different contexts with time-series published in the SIE by Banco de Mexico.
 
 ## License
 If you use Banco de Mexico's SIE API, you must clearly state the source and include a reference to Banco de México's URL address to enable third parties to verify the information's accuracy. For more details, look into the [Disclaimer](https://www.banxico.org.mx/footer-en/disclaimer-usage-policies-ban.html) shared by the Central Bank.
