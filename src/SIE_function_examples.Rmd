@@ -42,6 +42,7 @@ The first step is to use the custome function is load the library, as well to ca
 # load libraries
 library("siebanxicor")
 library("tidyverse")
+library("reticulate")
 
 # bring the token
 token_file <- read.csv("../token/SIE_Token.csv", header=FALSE)
@@ -236,6 +237,61 @@ df_public <- sie_function(serie_public, name_public,
             title_public, route="../img/",
             y_lab = my_y, x_lab = my_x,
             startDate=my_start, endDate=my_end)
+```
+
+
+## Save data results
+Last step in this case is to save the data frames returned by the custome funtion `sie_function` for each example. In this case, I used the `reticulate` package for using **Python** to save the databases in only one file, adding a general description of each database.
+```{python}
+# load libraries
+import numpy as np
+import pandas as pd
+
+# Add a comments data frame
+comments = pd.DataFrame()
+
+comments['Example'] = [1,2,3,4,5,6,7,8,9]
+comments['Database'] = [
+'Exchange Rate',
+  'Operations in ATM',
+  'Number of ATM',
+  'Retail transactions',
+  'Consumer Price Index',
+  '$20 banknote vs coin',
+  'Banknote lifetime',
+  'Banknote security features',
+  'Public Sector finances'
+]
+comments['Description'] = [
+  "Exchange Rate, of U.S. Dollar, Canadian Dollar, British Pound, Australian Dollar, and Euro to Mexican Pesos, since 2000.",
+  "Operations in ATMs with Debit and Credit Cards.",
+  "Number of ATM for the eight most-populated States in Mexico, since 2010.",
+  "Retail payment systems transactions at ATMs, POS, Checks, and Transfers by Electronic Payments, Internet Banking and Phone, from 2016 to 2019.",
+  "Consumer Price Index (INPC), main index and subindexes, during Enrique Peña Nieto's Presidency of Mexico (2012-2018).",
+  "Twenty pesos comparison of Banknotes vs. Coins, since 2000.",
+  "Banknote lifetime.",
+  "Remembrance of banknote security features.",
+  "Mexican Public Sector Revenues vs Expenditures."
+]
+
+# Save database:
+# Create a Pandas Excel writer using XlsxWriter as the engine.
+my_writer = pd.ExcelWriter('SIE_function_examples-data.xlsx', engine='xlsxwriter')
+
+# Write each dataframe to a worksheet.
+comments.to_excel(my_writer, sheet_name='README')
+r.df_tc.to_excel(my_writer, sheet_name='Exchange Rate')
+r.df_atm.to_excel(my_writer, sheet_name='Operations in ATM')
+r.df_state.to_excel(my_writer, sheet_name='Number of ATM')
+r.df_trans.to_excel(my_writer, sheet_name='Retail transactions')
+r.df_inpc.to_excel(my_writer, sheet_name='Consumer Price Index')
+r.df_twenty.to_excel(my_writer, sheet_name='$20 banknote vs coin')
+r.df_lifetime.to_excel(my_writer, sheet_name='Banknote lifetime')
+r.df_perception.to_excel(my_writer, sheet_name='Banknote security features')
+r.df_public.to_excel(my_writer, sheet_name='Public Sector finances')
+
+# Save the datbases to Excel file.
+my_writer.save()
 ```
 
 ## Final Comments
