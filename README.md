@@ -13,7 +13,7 @@ MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.or
 
 ## Overview
 
-The [Economic Information System](https://www.banxico.org.mx/SieInternet/), known as __SIE__, is published by the [Banco de Mexico](https://www.banxico.org.mx/indexen.html) to share the archive of different economic databases gathered by this Central Bank.  
+The [Economic Information System](https://www.banxico.org.mx/SieInternet/defaultEnglish.do), known as __SIE__, is published by the [Banco de Mexico](https://www.banxico.org.mx/indexen.html) to share the archive of different economic databases gathered by this Central Bank.  
 
 Additionally, Banco de Mexico has developed an API that allows people to consult the different time series and indices published in the SIE. You can have access to this API with this computational languages: JavaScript, Java, C#, and R. 
 
@@ -23,7 +23,7 @@ The aim of this repository is to show __how to use SIE's API in R__. More detail
 As mentioned before, in this repository we will focus in how to use SIE API with R.  
 
 #### Request a token
-The first step is to get a Bmx-Token. You can request a 64-alphanumeric token in [this link](https://www.banxico.org.mx/SieAPIRest/service/v1/token), which would be required to use the API.  
+The first step is to get a Bmx-Token. You can request a 64-alphanumeric token in [this link](https://www.banxico.org.mx/SieAPIRest/service/v1/token?locale=en), which would be required to use the API.  
 
 #### Installation of R-package
 Banco de Mexico developed a package for R called `siebanxicor` for developers, analysts and researchers for automatically retrieve economic databases published in the SIE by Banco de Mexico. You can install it by running the next line:
@@ -80,7 +80,7 @@ token_file <- read.csv("../token/SIE_Token.csv", header=FALSE)
 setToken(token_file$V2)
 ```
 _Notes:_  
-- _If you don't have a token to use SIE API, [**click here**](https://www.banxico.org.mx/SieAPIRest/service/v1/token) to access the official website and obtain one._  
+- _If you don't have a token to use SIE API, ⭐️ [**click here**](https://www.banxico.org.mx/SieAPIRest/service/v1/token) to access the official website and obtain one._  
 - _I add a csv file where users should paste and save their token to run this example._  
 
 
@@ -156,7 +156,7 @@ In this case, the function plots the series for the Annual Counterfeit of Bankno
 
 <center><img class="center" src="img\Annual Counterfeit Banknotes per Denomination.png" width="65%" height="65%" class="center"></center>
 
-[👉 Click here](https://github.com/vcuspinera/SIE_API_guide/blob/main/src/SIE_function_examples.pdf) to access to a complementary document developed to show additional examples of this custome function applied to different contexts with time-series published in the SIE by Banco de Mexico.
+⭐️ [Click here](https://github.com/vcuspinera/SIE_API_guide/blob/main/src/SIE_function_examples.pdf) to access to a complementary document developed to show additional examples of this custome function, applied to different contexts with time-series published in the SIE by Banco de Mexico.
 
 ## License
 If you use Banco de Mexico's SIE API, you must clearly state the source and include a reference to Banco de México's URL address to enable third parties to verify the information's accuracy. For more details, look into the [Disclaimer](https://www.banxico.org.mx/footer-en/disclaimer-usage-policies-ban.html) shared by the Central Bank.
