@@ -59,7 +59,7 @@ Additionally, I have created a customed support function that can be found in th
 
 To show the usage of the SIE API with `siebanxicor` R-package, we will go through an example using the time series for the of the __Annual counterfeit domestic banknotes detected for the current denomination in circulation__: 20, 50, 100, 200, 500 and 1000 pesos  (series __SM1249__, __SM1250__, __SM1251__, __SM1252__, __SM1253__, __SM1254__).
 
-[⭐️ Click here](https://www.banxico.org.mx/SieAPIRest/service/v1/doc/catalogoSeries) to look for the complete catalogue of the SIE's time series published by Banco de Mexico.
+[⭐️ Click here](https://www.banxico.org.mx/SieAPIRest/service/v1/doc/catalogoSeries?locale=en) to look for the complete catalogue of the SIE's time series published by Banco de Mexico.
 
 #### 1. Load library
 
@@ -169,7 +169,7 @@ Additionally, the materials of this repository are of public domain. If re-using
 
 <div id="ref-sie">
 Banco de Mexico. 2020. Economic Information System (SIE).
-<https://www.banxico.org.mx/SieInternet/>
+<https://www.banxico.org.mx/SieInternet/defaultEnglish.do>
 </div>
 <br>
 <div id="ref-sie_api">
