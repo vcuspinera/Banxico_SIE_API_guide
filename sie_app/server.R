@@ -114,7 +114,7 @@ server <- function(input, output, session) {
     # function that returns a string which tells the client
     # browser what name to use when saving the file.
     filename = function() {
-      paste(input$text1, "csv", sep = ".")
+      paste("~/", input$text1, "csv", sep = ".")
     },
     # function that writes the file
     content = function(file) {

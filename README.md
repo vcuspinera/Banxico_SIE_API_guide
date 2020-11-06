@@ -16,27 +16,26 @@ MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.or
 
 Additionally, this Central Bank has developed an API that allows Developers, Analysts and Researchers to consult automatically the SIE's time series, using JavaScript, Java, C# and R.  More details of the API can be found in the [SIE API official webpage](https://www.banxico.org.mx/SieAPIRest/service/v1/?locale=en).  
 
-The aim of this repository is to show __how to use SIE's API with R__, explaining how to retrieve information with the `siebanxicor` R-package developed by Banco de Mexico, and how to use a custom function to explore the selected time series, and a Dashboard to look into Banknotes and Coins series.
+The aim of this repository is to show __how to use SIE's API with R__, explaining how to retrieve information with the `siebanxicor` R package developed by Banco de Mexico, and how to use a custom function to explore the selected time series, and a Dashboard to look into Banknotes and Coins series.
 
 ## Getting prepared
 As mentioned before, in this repository we will focus in how to use SIE API with R.  
 
-#### Request a token
+### Request a token
 The first step is to get a Bmx-Token. You can request a 64-alphanumeric token in [this link](https://www.banxico.org.mx/SieAPIRest/service/v1/token?locale=en), which would be required to use the API.  
 
-#### Installation of R-package
-Banco de Mexico developed a package for R called `siebanxicor` for developers, analysts and researchers for automatically retrieve economic databases published in the SIE by Banco de Mexico. You can install it by running the next line:
+### Installation of R package
+Banco de Mexico developed the `siebanxicor` R package to automatically retrieve economic databases published in the SIE by Banco de Mexico. You can install it by running the next line in R or Rstudio:
 ```{r}
 install.packages("siebanxicor")
 ```
 
-More details of the `siebanxicor` R-package can be found [here](https://cran.r-project.org/web/packages/siebanxicor/siebanxicor.pdf).
+More details of `siebanxicor` can be found [⭐️ here](https://cran.r-project.org/web/packages/siebanxicor/siebanxicor.pdf).
 
 ## Features of `siebanxicor`
+The `siebanxicor` R package has five utility functions to retrieve information from the databases published by the Mexican Central Bank: 
 
-The `siebanxicor` R-package has five utility functions to retrieve information from the databases published by the Mexican Central Bank: 
-
-- `setToken` - while the Bnx-Token is the key to access SIE API, the `setToken` function is the knob that opens the channel to and connects to this API. This utility function should be called before any other function from the siebanxicor package.  
+- `setToken` - while the Bnx-Token is the key to access SIE API, the `setToken` function is the knob that opens the channel and connects to this API. This utility function <u>should be called before any other function</u> from the siebanxicor package.  
 
 - `getSeriesData` - requests the time series data from the SIE, up to 100 series at a time. It returns a vector with the requested information.  
 
@@ -50,15 +49,19 @@ _Note: In some cases, to use one of these functions you should previously use an
 
 <br>
 
-Additionally, I have created a customed support function that can be found in the __src__ folder of this repo, for helping analysts and researchers to easily explore the time series:  
+Additionally, I have created a custom support function that can be found in the __src__ folder of this repo, to help Analysts and Researchers to easily explore the time series:  
 
-- `sie_function` - when giving the names of the code of different series, prints a plot of the series and metadata, and returns [tidy data](https://www.jstatsoft.org/article/view/v059i10) in data.frame format of the requested series.
+- `sie_function` - when giving the names of the code of different series, it automatically prints and saves the plot of this series, prints the metadata, and returns the data in a [tidy format](https://www.jstatsoft.org/article/view/v059i10) frame format.  
+
+To complement this effort, I built a [Dashboard](##Dashboard) that focus on Mexican Banknotes and Coins exploring currency time series from SIE API with the option of saving the database of the selected series, in wide or tidy format.
 
 ## Usage
 
-To show the usage of the SIE API with `siebanxicor` R-package, we will go through an example using the time series for the of the __Annual counterfeit domestic banknotes detected for the current denomination in circulation__: 20, 50, 100, 200, 500 and 1000 pesos  (series __SM1249__, __SM1250__, __SM1251__, __SM1252__, __SM1253__, __SM1254__).
+To show the usage of the SIE API with `siebanxicor` R package, we will go through an example using the time series for the of the __Annual counterfeit domestic banknotes detected for the current denomination in circulation__: 20, 50, 100, 200, 500 and 1000 pesos  (series __SM1249__, __SM1250__, __SM1251__, __SM1252__, __SM1253__, __SM1254__).
 
 [⭐️ Click here](https://www.banxico.org.mx/SieAPIRest/service/v1/doc/catalogoSeries?locale=en) to look for the complete catalogue of the SIE's time series published by Banco de Mexico.
+
+### Utility functions of `siebanxicor`
 
 #### 1. Load library
 
@@ -130,8 +133,9 @@ df_last_value <- getSeriesCurrentValue(my_series)
 ```
 _Note: to use the `getSeriesCurrentValue` function, you should previously call `setToken`._
 
+### Custome resources
 
-#### 7. Use the customed function `sie_function(series_codes, series_names, title_plot, x_lab, y_lab, startDate, endDate, route)`
+#### 7. Use the custom function `sie_function(series_codes, series_names, title_plot, x_lab, y_lab, startDate, endDate, route)`
 
 This function prints the metadata for the Annual Counterfit Banknotes series, prints and saves and their plot, and returns a data frame with these series in tidy format.
 
@@ -157,11 +161,27 @@ In this case, the function plots the series for the Annual Counterfeit of Bankno
 
 ⭐️ [Click here](https://github.com/vcuspinera/SIE_API_guide/blob/main/src/SIE_function_examples.pdf) to access to a complementary document developed to show additional examples of this custome function, applied to different contexts with time-series published in the SIE by Banco de Mexico.
 
-## App
+#### 8. Dashboard
 
+The goal of this dashboard is to help users to easily explore time series from SIE API. In this case, the app is focus on currency series, but it could be expanded in the future.
 
+It includes different options to select up to 10 series, in a given date range, with the possibility of changing the title and label of the plot, select a format to present the database, and a button to download the series' database in the select format.
 
 <center><img src="img\sie_cash_app - sketch.png" width="100%" height="80%"></center>
+
+There are different options to run this app:
+
+- __App file__: Open the file `app.R` located in the [sie_cash_app folder](https://github.com/vcuspinera/SIE_API_guide/tree/main/sie_cash_app), and click on `▶️ Run App`.
+
+- __R project__: Open the R project of this repository named as `SIE_API_guide.Rproj`, and run in the console:
+```r
+shiny::runApp("sie_app")
+```
+
+- __Terminal__: Open the terminal and, from the main folder of this repository, run the following line:
+```
+Rscript -e 'library(methods); shiny::runApp("sie_app/", launch.browser = TRUE)'
+```
 
 ## License
 If you use Banco de Mexico's SIE API, you must clearly state the source and include a reference to Banco de México's URL address to enable third parties to verify the information's accuracy. For more details, look into the [Disclaimer](https://www.banxico.org.mx/footer-en/disclaimer-usage-policies-ban.html) shared by the Central Bank.
@@ -186,6 +206,9 @@ Banco de Mexico. 2020. SIE API.
 Wickham, Hadley. 2014. "Tidy Data". Journal of Statistical Software, Articles. Volume 59, number 10. DOI: 10.18637/jss.v059.i10
 <https://www.jstatsoft.org/article/view/v059i10>
 </div>
-
+<div id="ref-shiny">
+RStudio. (2020). "Shiny: web application framework for R". R package, version 1.5.0
+<https://shiny.rstudio.com/tutorial/>
 </div>
 
+</div>
