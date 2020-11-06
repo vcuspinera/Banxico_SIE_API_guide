@@ -276,7 +276,7 @@ comments['Description'] = [
 
 # Save database:
 # Create a Pandas Excel writer using XlsxWriter as the engine.
-my_writer = pd.ExcelWriter('../data/SIE_function_examples-data.xlsx', engine='xlsxwriter')
+my_writer = pd.ExcelWriter('SIE_function_examples-data.xlsx', engine='xlsxwriter')
 
 # Write each dataframe to a worksheet.
 comments.to_excel(my_writer, sheet_name='README')
