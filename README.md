@@ -55,6 +55,19 @@ Additionally, I have created a custom support function that can be found in the 
 
 To complement this effort, I built a [Dashboard](##Dashboard) that focus on Mexican Banknotes and Coins exploring currency time series from SIE API with the option of saving the database of the selected series, in wide or tidy format.
 
+## Dependencies
+
+|R packages |
+|:----------|
+|siebanxicor|
+|tidyverse  |
+|tidyr      |
+|reshape2   |
+|reticulate |
+|shiny      |
+|shinydashboard|
+|shinyWidgets|
+
 ## Usage
 
 To show the usage of the SIE API with `siebanxicor` R package, we will go through an example using the time series for the of the __Annual counterfeit domestic banknotes detected for the current denomination in circulation__: 20, 50, 100, 200, 500 and 1000 pesos  (series __SM1249__, __SM1250__, __SM1251__, __SM1252__, __SM1253__, __SM1254__).
