@@ -208,7 +208,7 @@ Wickham, Hadley. 2014. "Tidy Data". Journal of Statistical Software, Articles. V
 </div>
 <br>
 <div id="ref-shiny">
-RStudio. (2020). "Shiny: web application framework for R". R package, version 1.5.0
+RStudio. 2020. Shiny: web application framework for R. R package, version 1.5.0
 <https://shiny.rstudio.com/tutorial/>
 </div>
 
