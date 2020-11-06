@@ -1,6 +1,6 @@
 # Guide and tips to use SIE API
 
-Banco de Mexico has developed an API for developers, analysts and researchers for automatically retrieve the databases from the SIE. In this repository I share tips to use R tools to use this useful API.
+Banco de Mexico has developed an API for Developers, Analysts and Researchers to automatically retrieve the databases from the SIE. In this repository I share tips and tools to use this useful API with R.
 
 ```diff
 # ⚠️ The views and conclusions presented in this Repository are exclusively  #
@@ -12,12 +12,11 @@ Banco de Mexico has developed an API for developers, analysts and researchers fo
 MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Overview
+[Banco de Mexico](https://www.banxico.org.mx/indexen.html) publishes the archive of national economic databases through the [Economic Information System](https://www.banxico.org.mx/SieInternet/defaultEnglish.do), known as __SIE__.  
 
-The [Economic Information System](https://www.banxico.org.mx/SieInternet/defaultEnglish.do), known as __SIE__, is published by the [Banco de Mexico](https://www.banxico.org.mx/indexen.html) to share the archive of different economic databases gathered by this Central Bank.  
+Additionally, this Central Bank has developed an API that allows Developers, Analysts and Researchers to consult automatically the SIE's time series, using JavaScript, Java, C# and R.  More details of the API can be found in the [SIE API official webpage](https://www.banxico.org.mx/SieAPIRest/service/v1/?locale=en).  
 
-Additionally, Banco de Mexico has developed an API that allows people to consult the different time series and indices published in the SIE. You can have access to this API with this computational languages: JavaScript, Java, C#, and R. 
-
-The aim of this repository is to show __how to use SIE's API in R__. More details of the API can be found in the [official webpage](https://www.banxico.org.mx/SieAPIRest/service/v1/?locale=en).
+The aim of this repository is to show __how to use SIE's API with R__, explaining how to retrieve information with the `siebanxicor` R-package developed by Banco de Mexico, and how to use a custom function to explore the selected time series, and a Dashboard to look into Banknotes and Coins series.
 
 ## Getting prepared
 As mentioned before, in this repository we will focus in how to use SIE API with R.  
@@ -157,6 +156,12 @@ In this case, the function plots the series for the Annual Counterfeit of Bankno
 <center><img class="center" src="img\Annual Counterfeit Banknotes per Denomination.png" width="65%" height="65%" class="center"></center>
 
 ⭐️ [Click here](https://github.com/vcuspinera/SIE_API_guide/blob/main/src/SIE_function_examples.pdf) to access to a complementary document developed to show additional examples of this custome function, applied to different contexts with time-series published in the SIE by Banco de Mexico.
+
+## App
+
+
+
+<center><img src="img\sie_cash_app - sketch.png" width="100%" height="80%"></center>
 
 ## License
 If you use Banco de Mexico's SIE API, you must clearly state the source and include a reference to Banco de México's URL address to enable third parties to verify the information's accuracy. For more details, look into the [Disclaimer](https://www.banxico.org.mx/footer-en/disclaimer-usage-policies-ban.html) shared by the Central Bank.
