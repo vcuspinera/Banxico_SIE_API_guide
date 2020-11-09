@@ -12,7 +12,7 @@ Banco de Mexico has developed an API for Developers, Analysts and Researchers to
 MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Overview
-Central Banks are some of the institutions with the best reputation in each country, with the main goal of control the Inflation, and the aims of supervise the Financial Institutions, and produce and distribute Currency at a national level, among other tasks.
+Central Banks are some of the institutions with the best reputation in each country, with the main aims of control the Inflation, supervise the Financial Institutions, and produce and distribute Currency at a national level, among other tasks.
 
 [Banco de Mexico](https://www.banxico.org.mx/indexen.html), founded in 1925 and autonomy since 1994, plays a key role in the Economy of the Mexico. As the Central Bank, it publishes the archive of national economic databases through the [Economic Information System](https://www.banxico.org.mx/SieInternet/defaultEnglish.do), known as __SIE__.  
 
