@@ -2,7 +2,7 @@
 
 ### Description
 
-The goal of this dashboard is to help users to easily explore time series from [SIE API](https://www.banxico.org.mx/SieAPIRest/service/v1/). In this case, the app is focus on currency series, but it could be expanded in the future.
+The goal of this Shiny Dashboard is to help users to easily explore time series from [SIE API](https://www.banxico.org.mx/SieAPIRest/service/v1/). In this case, the app is focus on currency series, but it could be expanded in the future.
 
 It includes different options to select up to 10 series, in a given date range, with the possibility of changing the title and label of the plot, select a format to present the database, and a button to download the series' database in the select format.
 
@@ -14,7 +14,7 @@ It includes different options to select up to 10 series, in a given date range, 
 
 There are different options to run this app:
 
-- __App file__: Open the file `app.R` located in the [sie_app folder](https://github.com/vcuspinera/SIE_API_guide/tree/main/sie_app), and click on `▶️ Run App`.
+- __App file__: Open the file `app.R` located in the [sie_app folder](https://github.com/vcuspinera/Banxico_SIE_API_guide/tree/main/sie_app), and click on `▶️ Run App`.
 
 - __R project__: Open the R project of this repository named as `SIE_API_guide.Rproj`, and run in the console:
 ```r

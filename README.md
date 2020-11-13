@@ -55,7 +55,7 @@ Additionally, I have created a custom support function that can be found in the 
 
 - `sie_function` - when giving the names of the code of different series, it automatically prints and saves the plot of this series, prints the metadata, and returns the data in a [tidy format](https://www.jstatsoft.org/article/view/v059i10) frame format.  
 
-To complement this effort, I built a [Dashboard](##Dashboard) that focus on Mexican Banknotes and Coins exploring currency time series from SIE API with the option of saving the database of the selected series, in wide or tidy format.
+To complement this effort, I built a [Shiny Dashboard](https://github.com/vcuspinera/Banxico_SIE_API_guide/tree/main/sie_app) that focus on Mexican Banknotes and Coins exploring currency time series from SIE API with the option of saving the database of the selected series, in wide or tidy format.
 
 ## Dependencies
 
@@ -174,7 +174,7 @@ In this case, the function plots the series for the Annual Counterfeit of Bankno
 
 <center><img class="center" src="img\Annual Counterfeit Banknotes per Denomination.png" width="65%" height="65%" class="center"></center>
 
-⭐️ [Click here](https://github.com/vcuspinera/SIE_API_guide/blob/main/src/SIE_function_examples.pdf) to access to a complementary document developed to show additional examples of this custome function, applied to different contexts with time-series published in the SIE by Banco de Mexico.
+⭐️ [Click here](https://github.com/vcuspinera/Banxico_SIE_API_guide/blob/main/src/SIE_function_examples.pdf) to access to a complementary document developed to show additional examples of this custome function, applied to different contexts with time-series published in the SIE by Banco de Mexico.
 
 #### 8. Dashboard
 
@@ -186,7 +186,7 @@ It includes different options to select up to 10 series, in a given date range, 
 
 There are different options to run this app:
 
-- __App file__: Open the file `app.R` located in the [sie_app folder](https://github.com/vcuspinera/SIE_API_guide/tree/main/sie_app), and click on `▶️ Run App`.
+- __App file__: Open the file `app.R` located in the [sie_app folder](https://github.com/vcuspinera/Banxico_SIE_API_guide/tree/main/sie_app), and click on `▶️ Run App`.
 
 - __R project__: Open the R project of this repository named as `SIE_API_guide.Rproj`, and run in the console:
 ```r
